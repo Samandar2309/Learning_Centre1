@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1 style="margin-top: 60px; margin-bottom: 60px">Teachers</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-bottom: 60px">
+        {% for obj in teachers %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ obj.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'course-detail' obj.id %}">
+                            {{ obj.name }}  {{ obj.surname }}</a></h5>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Tajribasi: {{ obj.experience }}</small>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Email: {{ obj.email }}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

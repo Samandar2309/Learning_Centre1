@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1 style="margin-top: 60px; margin-bottom: 60px" xmlns="http://www.w3.org/1999/html">Courses</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-bottom: 60px">
+        {% for obj in courses %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ obj.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'course-detail' obj.id %}">{{ obj.name }}</a></h5>
+                    </div>
+                     <div class="card-footer">
+                        <small class="text-muted">Kurs haqida: {{ obj.description }}</small>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Davomiyligi: {{ obj.term }}</small>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Ustoz: {{ obj.teachers }} {{ obj.surname }}</small>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <small class="text-muted">Narxi: {{ obj.price }} so'm</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

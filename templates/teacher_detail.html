@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="col">
+        <div class="card h-100">
+            <a href="{% url 'teacher_detail' teacher.id %}"><img style="width: 300px; height: 300px; margin-left: 60px"
+                                                                 src="{{ teacher.image.url }}" class="card-img-top"
+                                                                 alt="..."></a>
+            <div class="card-body">
+                <h5 class="card-title">{{ teacher.name }} {{ teacher.surname }}</h5>
+                <p class="card-text">{{ teacher.experience }}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Email: {{ teacher.email }}</small>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
